@@ -11,6 +11,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ja" className="dark h-full" suppressHydrationWarning>
+      <head>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4725513157136666"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="flex min-h-full flex-col leading-relaxed antialiased">
         <Script id="theme-init" strategy="beforeInteractive">
           {`try{if(localStorage.getItem("ai_glossary_theme")==="light"){document.documentElement.classList.remove("dark")}}catch(e){}`}
