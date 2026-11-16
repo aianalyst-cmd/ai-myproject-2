@@ -6,7 +6,6 @@ import { FavoritesSection } from "@/components/glossary/favorites-section";
 import { GlossaryFilters } from "@/components/glossary/glossary-filters";
 import { ProgressDashboard } from "@/components/glossary/progress-dashboard";
 import { RequestForm } from "@/components/glossary/request-form";
-import { SiteFooter } from "@/components/glossary/site-footer";
 import { SiteHeader } from "@/components/glossary/site-header";
 import { TermList } from "@/components/glossary/term-list";
 import { useGlossary } from "@/hooks/use-glossary";
@@ -15,11 +14,11 @@ export function GlossaryApp() {
   const glossary = useGlossary();
 
   if (!glossary.ready) {
-    return <div className="min-h-screen bg-slate-50 dark:bg-slate-900" />;
+    return <div className="min-h-full flex-1 bg-slate-50 dark:bg-slate-900" />;
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 pb-8 text-slate-800 transition-colors dark:bg-slate-900 dark:text-slate-50">
+    <div className="min-h-full flex-1 bg-slate-50 pb-8 text-slate-800 transition-colors dark:bg-slate-900 dark:text-slate-50">
       <SiteHeader
         theme={glossary.theme}
         user={glossary.user}
@@ -111,8 +110,6 @@ export function GlossaryApp() {
           />
         )}
       </main>
-
-      <SiteFooter />
     </div>
   );
 }

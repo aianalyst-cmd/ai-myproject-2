@@ -11,6 +11,19 @@ function requirePublicEnv() {
   return { supabaseUrl, supabaseAnonKey };
 }
 
+/** Server Components / Route Handlers 向け（セッション永続化なし） */
+export function createPublicSupabaseClient(): SupabaseClient {
+  const { supabaseUrl, supabaseAnonKey } = requirePublicEnv();
+
+  return createClient(supabaseUrl, supabaseAnonKey, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+      detectSessionInUrl: false,
+    },
+  });
+}
+
 export function createUserSupabaseClient(accessToken: string): SupabaseClient {
   const { supabaseUrl, supabaseAnonKey } = requirePublicEnv();
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { SiteFooter } from "@/components/glossary/site-footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -10,11 +11,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ja" className="dark h-full" suppressHydrationWarning>
-      <body className="min-h-full leading-relaxed antialiased">
+      <body className="flex min-h-full flex-col leading-relaxed antialiased">
         <Script id="theme-init" strategy="beforeInteractive">
           {`try{if(localStorage.getItem("ai_glossary_theme")==="light"){document.documentElement.classList.remove("dark")}}catch(e){}`}
         </Script>
-        {children}
+        <div className="flex min-h-full flex-1 flex-col">{children}</div>
+        <SiteFooter />
       </body>
     </html>
   );

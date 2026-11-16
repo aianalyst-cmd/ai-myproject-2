@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { TermQuizModal } from "@/components/glossary/term-quiz-modal";
 import { summaryCopyText } from "@/lib/glossary";
@@ -141,6 +142,13 @@ export function TermCard({
             >
               クイズに挑戦
             </button>
+            <Link
+              href={`/terms/${item.id}`}
+              onClick={(event) => event.stopPropagation()}
+              className="inline-flex items-center gap-1 rounded border border-slate-200 bg-slate-50 px-2 py-0.5 text-[0.7rem] font-bold text-slate-600 hover:border-blue-500 hover:text-blue-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-200"
+            >
+              詳細ページで読む
+            </Link>
           </div>
         </div>
         <span className={`mt-1 ml-2 shrink-0 text-xs text-slate-400 transition-transform ${open ? "rotate-180" : ""}`}>
@@ -155,6 +163,15 @@ export function TermCard({
               <span className="mb-1 block font-bold text-slate-900 dark:text-blue-500">📘 詳細</span>
               <p className="whitespace-pre-wrap">{item.details}</p>
             </section>
+            <div className="mt-4">
+              <Link
+                href={`/terms/${item.id}`}
+                onClick={(event) => event.stopPropagation()}
+                className="inline-flex items-center rounded bg-blue-500 px-3 py-1.5 text-xs font-bold text-white hover:bg-blue-600"
+              >
+                詳細ページで読む →
+              </Link>
+            </div>
           </div>
         </div>
       </div>
